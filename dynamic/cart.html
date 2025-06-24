@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/toy.css' %}">
+
+<H2 style="color: rebeccapurple;">{{info}}</H2>
+
+<main class="page-content">
+    {% for m in cart %}
+
+    <div class="card"style="background-image: url({% static 'images/bgimage.jpg' %});">
+        <div class="content">
+
+            <img src="{{m.product.timg.url}}">
+            
+            <h3 class="title">NAME: {{m.product.tname}}</h3>
+            
+            <h4 class="title"> PRICE: {{m.product.tprice}}$</h4>
+    
+            <p class="copy">QUANTITY: {{m.qty}}</p>
+
+            <button><a href="{% url 'deletecart' m.id %}">Remove</a></button>
+            
+        </div>
+    </div>
+    
+    {% endfor %}
+</main>
+<div>
+    <center>
+    <h2 style="color: rgba(84, 220, 220, 0.93);">Total Price</h2>
+    <h1 style="color: rgba(84, 220, 220, 0.93);">{{total}}</h1>
+    </center>
+</div>

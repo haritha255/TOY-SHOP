@@ -1,0 +1,8 @@
+<form method="post">
+    {% csrf_token %}
+    <h2 style="background-color: brown;">{{success}}</h2>
+    {{form}}
+    <br>
+    <br>
+    <button>Register</button>
+</form>

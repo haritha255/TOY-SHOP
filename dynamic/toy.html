@@ -1,0 +1,23 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/toy.css' %}">
+{% if messages %}
+{% for msg in messages %}
+<h2 style="color: purple;">{{msg}}</h2>
+{% endfor %}
+{% endif %}
+
+<main class="page-content">
+    {% for m in toys %}
+    <div class="card"style="background-image: url({% static 'images/bgimage.jpg' %});">
+        <div class="content">
+            
+            <h3 class="title">{{m.tname}}</h3>
+            <img src="{{m.timg.url}}">
+            <h4 class="title">{{m.tprice}}$</h4>
+            <p class="copy">{{m.tdes}}</p>
+            <button class="btn"><a href="{% url 'addtocart' m.id %}" style="color: aquamarine;">ADD TO CART</a></button>
+        </div>
+    </div>
+    
+    {% endfor %}
+</main>
